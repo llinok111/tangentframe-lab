@@ -1,0 +1,51 @@
+{
+  "machine": "node v24.19.0 (4-core / 3.6GB headless)",
+  "workload": {
+    "vertices": 2080,
+    "triangles": 3968,
+    "repeat": 500,
+    "vertexFramesPerBatch": 1040000
+  },
+  "cold_ms_per_pass": 7.0759,
+  "pipeline": {
+    "samples_ms": [
+      6.6434,
+      6.5922,
+      6.6185,
+      6.6124,
+      6.6504,
+      6.6393,
+      6.6257
+    ],
+    "min_ms": 6.5922,
+    "median_ms": 6.6257,
+    "p95_ms": 6.6504,
+    "stddev_ms": 0.0187,
+    "rsd": 0.0028,
+    "ms_per_1M_vertex_frames": 3185.41
+  },
+  "baseline_naive_normalize": {
+    "samples_ms": [
+      1.1688,
+      1.1581,
+      1.1538,
+      1.1621,
+      1.1554,
+      1.162,
+      1.163
+    ],
+    "min_ms": 1.1538,
+    "median_ms": 1.162,
+    "p95_ms": 1.1688,
+    "stddev_ms": 0.0047,
+    "rsd": 0.0041
+  },
+  "overhead_vs_naive": 5.702,
+  "correctness": {
+    "defects_before": 43,
+    "defects_after_frames_only": 1,
+    "max_unit_error": 2.220446049250313e-16,
+    "max_ortho_error": 1.1102230246251565e-16,
+    "max_tangent_unit_error": 1.1102230246251565e-16
+  }
+}

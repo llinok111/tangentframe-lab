@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tangentframe-lab — glTF tangent-frame triage</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+         background: #0b0f14; color: #c9d6e2; overflow: hidden; }
+  #view { position: fixed; inset: 0; }
+  #hud { position: fixed; top: 14px; left: 14px; width: 330px; padding: 12px 14px;
+         background: rgba(10,16,24,.86); border: 1px solid #1d2b3a; border-radius: 8px; }
+  h1 { font-size: 13px; margin: 0 0 8px; color: #7fd1ff; letter-spacing: .3px; }
+  .row { display: flex; justify-content: space-between; gap: 8px; padding: 1px 0; }
+  .k { color: #6f8399; } .v { color: #e6f1ff; }
+  .ok { color: #63e6a2; } .bad { color: #ff7d7d; }
+  #hint { position: fixed; bottom: 12px; left: 14px; color: #5d7389; }
+</style>
+<script type="importmap">
+{ "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="view"></div>
+<div id="hud">
+  <h1>glTF tangent-frame doctor</h1>
+  <div class="row"><span class="k">vertices / triangles</span><span class="v" id="counts">…</span></div>
+  <div class="row"><span class="k">defects detected</span><span class="v" id="defects">…</span></div>
+  <div class="row"><span class="k">after repair (frames)</span><span class="v" id="after">…</span></div>
+  <div class="row"><span class="k">max |n·t| after</span><span class="v" id="ortho">…</span></div>
+  <div class="row"><span class="k">max |1-|n|| after</span><span class="v" id="unit">…</span></div>
+  <div class="row"><span class="k">geometry untouched</span><span class="v" id="geom">…</span></div>
+  <div class="row"><span class="k">blue = repaired normal</span><span class="v">red = defect</span></div>
+</div>
+<div id="hint">drag = orbit · wheel = zoom · same core.mjs runs in node and here</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
